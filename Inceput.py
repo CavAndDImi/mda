@@ -173,7 +173,7 @@ def wallet(ID):
 def info():
     return render_template('info.html')
 
-@app.route('<ID>/proof-of-work')
+@app.route('/<ID>/proof-of-work')
 #!!!Mining And Crypto!!!!
 
 
