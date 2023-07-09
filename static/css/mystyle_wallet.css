@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background-color: #e9e9f0;
+  }
+  
+.back {
+  border-radius: 4px;
+  padding: 5px 12px;
+  position: relative;
+  bottom: -150px;
+}
+.logo {
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+button {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 12px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 13px 13px;
+  cursor: pointer;
+  transition-duration: 0.1s;
+}
+
+button:hover{
+  background-color: gray;
+
+}
+
+.nav{
+  background-color: #e5cfe1;
+  background-size: cover;
+  padding:10px;
+}
+
+.frumi h2{
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  position: fixed;
+  bottom: 2.4%;
+  right: 3%;
+  color: #fff;
+  background: #00808089;
+  padding: 7px 12px;;
+  font-size: 18px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.15);
+}
+
+.bai h2{
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: none;
+  position: absolute;
+  right:50%;
+  top:50%;
+  background: #00808089;
+  padding: 7px 12px;;
+  font-size: 18px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.15);
+}

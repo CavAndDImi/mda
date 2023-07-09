@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Birth of Artemis</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="crypto, nss, space, genesis">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle_log.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    </head>
+
+    <body>
+        <script src="{{url_for('static', filename='Scripturi/script_log.js')}}"></script>
+        
+        <center>
+            <img class="poza" src="{{url_for('static', filename='Imagini/Artemis.png')}}">
+            <div class="login">
+                <form method="post">
+                    <div class="msg">{{ msg }}</div><br><br>
+                    <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"/></br></br>
+                    <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br></br>
+                    <input type="submit" name="login" placeholder="login"></input>
+                </form>
+            </div>
+        </center>    
+    </body>
+</html>

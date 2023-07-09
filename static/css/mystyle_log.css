@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background-color: #e5cfe1;
+  }
+  
+.h1 {
+    color: rgb(44, 44, 44);
+    font-weight: bold;
+  }
+
+h4 {
+  color: rgb(44, 44, 44);
+    font-weight: 600px;
+    font-size: 12px;
+}
+
+.claims h5{
+  color: rgb(98,98,98);
+  font-weight:initial;
+  font-size: 10px;
+  position: relative;
+}
+.claims{
+  position:absolute;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto;
+  bottom:5%;
+}
+.login {
+  padding-top: 20%;
+}
+
+.logo {
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.login button {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 12px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 13px 13px;
+  cursor: pointer;
+  transition-duration: 0.1s;
+}
+
+button:hover{
+  background-color: gray;
+
+}
+
+input{
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.poza{
+  width: 100%;
+  height: 100%;
+  max-width: 520px;
+  max-height: 248px;
+  padding-top: 0%;
+  margin-top: 30%;
+}
+
+.info{
+  position: absolute;
+  right: 1%;
+  bottom:1%;
+}
+.info img{
+  height: 20%;
+  width: 20%;
+}
+.info button{
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: #e5cfe1;
+  transition: transform .7s ease-in-out;
+  margin-left:10px;
+}
+@media only screen and (min-width: 768px){
+  .login{
+    padding-top:10%;
+  }
+  .login button {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 12px 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 10px 10px;
+    cursor: pointer;
+    transition-duration: 0.1s;
+  }
+  .poza{
+    width: 100%;
+    height: 100%;
+    max-width: 620px;
+    max-height: 318px;
+    padding-top: 0%;
+    margin-top: 5%;
+  }
+}

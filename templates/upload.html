@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Birth of Artemis</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="crypto, nss, space, genesis">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle_log.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    </head>
+
+    <body>
+            <script src="{{url_for('static', filename='Scripturi/script_log.js')}}"></script>
+            <center>
+                <img class="poza" src="{{url_for('static', filename='Imagini/Artemis.png')}}">
+                <div class="login">
+                    <button type="button" value="1" onclick="redir(this.value)">Login</button>
+                    <h4>OR</h4>  
+                    <button type="button" value="0" onclick="redir(this.value)">Register</button>
+                </div>
+                <div class="claims">
+                    <h5>This website is made for the 2023 NSS contest</h5>
+                    <h5>For more details:</h5>
+                </div>
+                <div class="info">
+                    <button type="button" onclick="info()">
+                        <img src="{{url_for('static', filename='Imagini/info.png')}}">
+                    </button>
+                </div>
+            </center>
+    </body>
+
+</html>
