@@ -84,12 +84,16 @@ button:hover{
   max-width: 30%;
   background-color: #4bb1b57b;
   border:0;
-  transition-duration: 0.1;
+  transition-duration: 2s;
   cursor: pointer;
   display: inline-block;
   font-weight: bold;
   font-size:80%;
   margin: 2.5%;
+}
+.menu button:hover {
+  background: rgb(42, 189, 195);
+  background: linear-gradient(351deg, rgba(42, 189, 195, 0.8435749299719888) 4%, rgba(229, 207, 225, 1) 100%);
 }
 .menu button:active{
   background-color: #4bb2b5;
@@ -108,11 +112,116 @@ button:hover{
   padding:15px 24px;
 }
 .menu .mail{
-  padding:15px 24px;
-}
+  padding: 15px 18.895px;
+  }
+  
+  .pot {
+    position: fixed;
+    bottom: 50%;
+    right: 50%;
+  }
+  
+  .pot {
+    text-align: center;
+  }
+  
+  .pot td,
+  .pot th {
+    padding: 3px 5px;
+  }
+  
+  .pot thead {
+    background: #E5CFE1;
+  }
+  
+  .pot thead th {
+    font-weight: normal;
+  }
+  
+  .dop {
+    position: fixed;
+    bottom: 20%;
+    left: 30%;
+  }
+  
+  .dop {
+    text-align: center;
+  }
+  
+  .dop td,
+  .dop th {
+    padding: 3px 5px;
+  }
+  
+  .dop thead {
+    background: #E5CFE1;
+  }
+  
+  .dop thead th {
+    font-weight: normal;
+  }
+  
+  .frequest {
+    position: fixed;
+    bottom: 70%;
+    right: 45%;
+  }
+  
+  .frequest button {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background: #00808089;
+    padding: 5% 2%;
+    font-size: 100%;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.15);
+    background-size: 300%;
+    background-position: left;
+    transition: 1s background ease-in-out;
+  }
+  
+  .frequest button:hover {
+    background: linear-gradient(351deg, rgba(42, 189, 195, 0.8435749299719888) 4%, rgba(229, 207, 225, 1) 100%);
+    background-position: right;
+    transition: 1s background ease-in-out;
+    cursor: pointer;
+  }
+  
+  input[type=button] {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background: #00808089;
+    padding: 10% 10%;
+    font-size: 100%;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.15);
+    background-size: 300%;
+    background-position: left;
+    transition: 1s background ease-in-out;
+  }
+  
+  input[type="button"]:hover {
+    background: linear-gradient(351deg, rgba(42, 189, 195, 0.8435749299719888) 4%, rgba(229, 207, 225, 1) 100%);
+    background-position: right;
+    transition: 1s background ease-in-out;
+    cursor: pointer;
+  }
 
 @media only screen and (min-width: 768px){
     .menu{
       padding-top:20%;
     }
+.frequest {
+  position: fixed;
+  bottom: 50%;
+  right: 20%;
+}
+
+.dop {
+  left: 40%;
+}
 }

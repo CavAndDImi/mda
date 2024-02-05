@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Birth of Artemis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="crypto, nss, space, genesis">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle_page.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body method="post">
+    <script src="{{url_for('static', filename='Scripturi/script_log.js')}}"></script>
+    <div>
+        <h1>Da</h1>
+    </div>
+    <div class="navbar">
+        <div class="logo"><a href="">Birth Of Artemis</a></div>
+        <button class="wallet" onClick="check_wallet()">Balance: {{account['wallet']}}</button>
+    </div>
+    <div class="frumi">
+        <h2>{{account['username']}}</h2>
+    </div>
+    <div>
+        <h1>Da</h1>
+    </div>
+</body>
+
+</html>

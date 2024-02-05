@@ -1,2 +1,1 @@
-"# NSS" 
-"# NSS" 
+Site made as a project for the NSS contest by @cavescu_dimi

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Birth of Artemis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="crypto, nss, space, genesis">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/work.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+    <script src="{{url_for('static', filename='Scripturi/script_log_work.js') }}">
+    </script>
+    <div class="navbar">
+        <div class="logo"><a href="">Birth Of Artemis</a></div>
+        <button class="wallet">Balance: {{account['wallet']}}</button>
+    </div>
+    <center>
+        <div class="proof" method="POST">
+            <form method="post" id="form1">
+                <input type="text" id="putu" name="putu" value="{{account['id']}}">
+            </form>
+
+            <button class="cooldown" type="submit" form="form1" id="cd" name="cnp" data-value1="{{account['id']}}"><img
+                    alt="22" src="{{url_for('static', filename='Imagini/add.png')}}"><br><br>Insert
+                proof
+                of work</button>
+        </div>
+        <br><br>
+        <div class="clock">
+            <h1 id="clock"></h1>
+        </div>
+    </center>
+    <div class="frumi">
+        <h2>{{account['username']}}</h2>
+    </div>
+</body>
+
+</html>

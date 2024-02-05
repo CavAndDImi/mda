@@ -16,16 +16,18 @@
             </div>
             <center>
                 <div class="menu">
-                    <button class="shop"><img src="{{url_for('static', filename='Imagini/cart.png')}}"></img><br>Shop</button>
-                    
-                    <button class="transactions"><img src="{{url_for('static', filename='Imagini/his.png')}}"></img><br>Transactions</button>
+                    <button class="shop" onClick="shop()"><img
+                            src="{{url_for('static', filename='Imagini/cart.png')}}"></img><br>Shop</button>
+                    <button class="cryp" onClick="work()"><img
+                            src="{{url_for('static', filename='Imagini/work.png')}}"></img><br>Work</button>
                     <br><br>
-                    <button class="cryp"><img src="{{url_for('static', filename='Imagini/work.png')}}"></img><br>Work</button>
-                    <button class="mail"><img src="{{url_for('static', filename='Imagini/mail.png')}}"></img><br>Mail</button>
+                    <button class="mail" onClick="friends()"><img
+                            src="{{url_for('static', filename='Imagini/amici.png')}}"><br>Friends</button>
                 </div>
             </center>
-            <div class="frumi"><h2>{{account['username']}}</h2></div>
-            
+            <div class="frumi">
+                <h2>{{account['username']}}</h2>
+            </div>
     </body>
 
 </html>

@@ -128,6 +128,9 @@ def upload_reg():
         curr = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         curr.execute('SELECT * FROM cnps WHERE cnp = % s', (cnp, ))
         cnps = curr.fetchone()
+        currs = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        currs.execute('SELECT * FROM cooldown WHERE id = %s', (cnp, ))
+        passat = curr.fetchone()
         curs = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         curs.execute('SELECT * FROM accounts WHERE cnp = % s', (cnp, ))
         checkitycheck = curs.fetchone()
@@ -144,6 +147,8 @@ def upload_reg():
         else:
             if cnps:
                 cursor.execute('INSERT INTO accounts VALUES (NULL,% s, % s, %s, DEFAULT)', (username, Password,cnp, ))
+                currs.execute(
+                    'INSERT INTO cooldown VALUES (%s, NULL)', (cnp, ))
                 mysql.connection.commit()
                 msg = 'You have successfully registered !'
                 return redirect('/', code=302)
@@ -173,8 +178,122 @@ def wallet(ID):
 def info():
     return render_template('info.html')
 
-@app.route('/<ID>/proof-of-work')
-#!!!Mining And Crypto!!!!
+
+@app.route('/<ID>/proof-of-work', methods=['GET', 'POST'])
+def proof_of_work(ID):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM accounts WHERE cnp = % s', (ID, ))
+    account = cursor.fetchone()
+    curr = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    curr.execute('SELECT * FROM cooldown WHERE id = %s', (ID, ))
+    passat = curr.fetchone()
+    now = datetime.datetime.now()
+    data_time = now.strftime("%Y%m%d")
+    date_time = int(data_time)
+
+    if request.method == 'POST':
+        if passat['data'] != None:
+            if account['cnp'] == passat['id'] and passat['data'] != date_time:
+                curr.execute(
+                    'UPDATE cooldown SET data = %s WHERE id = %s', (None, ID))
+                return render_template('work.html', account=account, cool="True")
+            else:
+                return render_template('work.html', account=account, cool="True")
+        else:
+            curr.execute(
+                'UPDATE cooldown SET data = %s  WHERE id = %s', (date_time, ID))
+            cursor.execute(
+                'UPDATE accounts SET wallet = %s WHERE cnp = %s', (account['wallet']+0.76, ID))
+            return render_template('work.html', account=account, cool="True")
+    return render_template('work.html', account=account, cool="True")
+
+
+@app.route('/<ID>/friends', methods=['GET', 'POST'])
+def friends(ID):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM accounts WHERE cnp = % s', (ID, ))
+    account = cursor.fetchone()
+    dar = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    dar.execute(
+        'SELECT * FROM frequests JOIN accounts ON accounts.cnp = frequests.id WHERE frequests.send = %s', (account['username'], ))
+    dap = dar.fetchall()
+    curr = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    curr.execute(
+        'SELECT friend.friend2, accounts.wallet FROM friend JOIN accounts ON friend.friend2 = accounts.username WHERE friend1 = % s', (ID, ))
+    entries = curr.fetchall()
+    msg = ''
+    if request.method == 'POST' and 'addFr' in request.form:
+        username = request.form['addFr']
+
+        curs = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        curs.execute(
+            'SELECT * FROM accounts WHERE username = %s', (username, ))
+        user = curs.fetchone()
+
+        passat = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        passat.execute(
+            'SELECT * FROM friend WHERE friend2 = %s AND friend1 = %s', (username, account['cnp']))
+        sex = passat.fetchone()
+
+        curier = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        curier.execute(
+            'SELECT * FROM frequests WHERE send = %s AND id = %s', (username, account['cnp']))
+        plan = curier.fetchone()
+
+        if not re.match(r'[A-Za-z0-9]+', username):
+            msg = 'Username must contain only characters and numbers !'
+        elif plan:
+            msg = 'Friend request already sent!'
+        elif sex:
+            msg = 'Already friends'
+        else:
+            if account and user:
+                curier.execute(
+                    'INSERT INTO frequests VALUES (%s, %s)', (username, account['cnp']))
+                mysql.connection.commit()
+                msg = 'You have sent a friend request!'
+
+    if request.method == 'POST':
+        usere = request.form['nume']
+        hihihi = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        hihihi.execute('SELECT * FROM accounts WHERE cnp = % s', (usere, ))
+        cont = cursor.fetchone()
+        if ('poz(%s)', (cont['cnp'])) in request.form:
+            hihihi.execute('INSERT INTO friend VALUES (%s, %s)',
+                           (cont['cnp'], account['username']))
+            hihihi.execute('INSERT INTO friend VALUES (%s, %s)',
+                           (account['cnp'], cont['username']))
+            hihihi.execute(
+                'DELETE FROM frequests WHERE send = %s AnD id=%s', (account['username'], cont['cnp']))
+            mysql.connection.commit()
+        else:
+            hihihi.execute(
+                'DELETE FROM frequests WHERE send = %s AnD id=%s', (account['username'], cont['cnp']))
+            mysql.connection.commit()
+
+    if account:
+        return render_template('friends.php', account=account, entries=entries, dap=dap, msg=msg)
+
+
+@app.route('/<ID>/transactions')
+def trans(ID):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM accounts WHERE cnp = % s', (ID, ))
+    account = cursor.fetchone()
+    curr = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    curr.execute('SELECT * FROM tranzactii WHERE din OR pentru = % s', (ID, ))
+    tranz = curr.fetchall()
+    if account:
+        return render_template('trans.html', account=account, tranz=tranz)
+
+
+@app.route('/<ID>/shop')
+def shop(ID):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM accounts WHERE cnp = % s', (ID, ))
+    account = cursor.fetchone()
+    if account:
+        return render_template('shop.html', account=account)
 
 
 # Mining a new block
