@@ -6,7 +6,7 @@ import MySQLdb
 import MySQLdb.cursors
 import re
 
-from flask import Flask, jsonify, render_template, flash, request, redirect, url_for, session, logging, url_for
+from flask import Flask, jsonify, render_template, flash, request, redirect, session, logging, url_for
 from flask_mysqldb import MySQL
 
 nr=0
@@ -331,6 +331,6 @@ def is_valid():
     return jsonify(response), 200
 
 if __name__ == "__main__":
-    app.secret_key = 'super secret key'
+    app.secret_key = 'dada'
 
 app.run(debug=True, host="0.0.0.0", port=5000)
