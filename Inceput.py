@@ -333,4 +333,4 @@ def is_valid():
 if __name__ == "__main__":
     app.secret_key = 'super secret key'
 
-app.run(debug=True,host="192.168.100.3", port=5000)
+app.run(debug=True, host="0.0.0.0", port=5000)
